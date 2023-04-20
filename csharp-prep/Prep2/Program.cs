@@ -4,28 +4,31 @@ class Program
 {
     static void Main(string[] args)
     {
-    Console.Write("what is your grade? ");
-    string letter = Console.ReadLine();
-    int number = int.Parse(letter);
+        Console.Write("what is your grade percentage? ");
+        string answer = Console.ReadLine();
+        int number = int.Parse(answer);
+
+        string letter = " ";
+
         if (number >= 90)
         {
-            Console.WriteLine("Your grade is an A");
+           letter = "A";
         }
-        else if (number > 80 || number < 90)
+        else if (number >= 80)
         {
-           Console.WriteLine("Your grade is a B"); 
+           letter = "B"; 
         }
-         else if (number >= 70 || number < 80)
+         else if (number >= 70)
         {
-           Console.WriteLine("Your grade is a C"); 
+          letter = "C"; 
         }
-         else if (number >= 60 || number < 70)
+         else if (number >= 60)
         {
-           Console.WriteLine("Your grade is a D"); 
+           letter = "D"; 
         }
         else
         {
-            Console.WriteLine("your grade is a F");
+           letter = "F";
         }
     }
 }
