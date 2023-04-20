@@ -10,20 +10,60 @@ class Program
         string letter = " ";
 
         if (number >= 90)
-        {
-           letter = "A";
+        { 
+            if (number < 93)
+            {
+                letter = "A-";
+            }
+            else
+           {
+            letter = "A";
+           }
         }
         else if (number >= 80)
-        {
-           letter = "B"; 
+        { 
+            if (number > 87)
+            {
+                letter = "B+";
+            }
+            else if(number < 84)
+            {
+                letter = "B-";
+            } 
+            else
+            {
+                letter = "B";
+            }
         }
          else if (number >= 70)
         {
-          letter = "C"; 
+            if (number > 76)
+            {
+                letter = "C+";
+            }
+            else if(number < 74)
+            {
+                letter = "C-";
+            } 
+            else
+            {
+                letter = "C";
+            }
         }
          else if (number >= 60)
         {
-           letter = "D"; 
+            if (number > 66)
+            {
+                letter = "D+";
+            }
+            else if(number < 64)
+            {
+                letter = "D-";
+            } 
+            else
+            {
+                letter = "D";
+            }
         }
         else
         {
