@@ -4,14 +4,14 @@ class Program
 {
     static void Main(string[] args)
     {
-    Console.Write("what is your grade?");
+    Console.Write("what is your grade? ");
     string letter = Console.ReadLine();
     int number = int.Parse(letter);
         if (number >= 90)
         {
             Console.WriteLine("Your grade is an A");
         }
-        else if (number >= 80 || number < 90)
+        else if (number > 80 || number < 90)
         {
            Console.WriteLine("Your grade is a B"); 
         }
