@@ -1,26 +1,27 @@
-// 1) Class name
-// 2) Responsibilty
-// 3) variables are now attributes
-// 4) function are now methods
 using System;
 
-public class Resume
+class Program
 {
-    public string _name;
-
-    // Make sure to initialize your list to a new List before you use it.
-    public List<Job> _jobs = new List<Job>();
-
-    public void Display()
+    static void Main(string[] args)
     {
-        Console.WriteLine($"Name: {_name}");
-        Console.WriteLine("Jobs:");
+        Job job1 = new Job();
+        job1._jobTitle = "Software Engineer";
+        job1._company = "Microsoft";
+        job1._startYear = 2019;
+        job1._endYear = 2022;
 
-        // Notice the use of the custom data type "Job" in this loop
-        foreach (Job job in _jobs)
-        {
-            // This calls the Display method on each job
-            job.Display();
-        }
+        Job job2 = new Job();
+        job2._jobTitle = "Manager";
+        job2._company = "Apple";
+        job2._startYear = 2022;
+        job2._endYear = 2023;
+
+        Resume myResume = new Resume();
+        myResume._name = "Allison Rose";
+
+        myResume._jobs.Add(job1);
+        myResume._jobs.Add(job2);
+
+        myResume.Display();
     }
 }
