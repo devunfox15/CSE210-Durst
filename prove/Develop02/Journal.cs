@@ -5,25 +5,30 @@ using System.Collections.Generic;
 namespace Develop02
 {
     public class Journal 
-        {
+    {
             public List<Entry> entries;
-            public Journal()
-            {
-               entries = new List<Entry>();
-            }
+             public Journal()
+        {
+            entries = new List<Entry>();
+        }
 
-            public void AddEntry(Entry entry)
+        // Add an entry to the list of entries if it's not already in the list
+        public void AddEntry(Entry entry)
+        {
+            if (!entries.Contains(entry))
             {
-                if (!entries.Contains(entry))
-                {
-                    entries.Add(entry);
-                }
+                entries.Add(entry);
             }
-            public List<Entry> GetAllEntries()
-            {
-                return this.entries;
-            }
-             public void DisplayEntries()
+        }
+
+        // Return all entries in the list
+        public List<Entry> GetAllEntries()
+        {
+            return this.entries;
+        }
+
+        // Display all entries in the list
+        public void DisplayEntries()
         {
             foreach (Entry entry in entries)
             {
@@ -32,7 +37,9 @@ namespace Develop02
                 Console.WriteLine($"Entry: {entry.Response}\n");
             }
         }
-             public void SaveToFile(string fileName)
+
+        // Save entries to a file
+        public void SaveToFile(string fileName)
         {
             using (System.IO.StreamWriter file = new System.IO.StreamWriter(fileName))
             {
@@ -43,9 +50,9 @@ namespace Develop02
             }
         }
 
+        // Load entries from a file
         public void LoadFromFile(string fileName)
         {
-            
             entries.Clear();
             using (System.IO.StreamReader file = new System.IO.StreamReader(fileName))
             {
@@ -57,5 +64,5 @@ namespace Develop02
                 }
             }
         }
-        }
+    }
 }
