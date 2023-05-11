@@ -7,11 +7,14 @@ namespace Develop02
     {
         static void Main(string[] args)
         {
+            //greeting and run the jorunal file early
+            Console.WriteLine("Welcome to the journal Prompt");
             Journal journal = new Journal();
 
             while (true)
             {
                 // Prompt the user with menu options
+                Console.WriteLine("Please select one of the following choices:");
                 Console.WriteLine("1) Add a new entry");
                 Console.WriteLine("2) Display journal entries");
                 Console.WriteLine("3) Save the journal to a file");
