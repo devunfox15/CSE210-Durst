@@ -4,8 +4,6 @@ class Program
 {
     static void Main(string[] args)
     {
-        int x;
-        x = 5;
-        Console.WriteLine(x);
+        Console.WriteLine("Hello Develop03 World!");
     }
 }
