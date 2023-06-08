@@ -37,8 +37,7 @@ namespace Develop04
                     Console.Clear();
                     BreathingActivity Breathing = new BreathingActivity("Activity", "Description", 0, "Response");
                     Console.WriteLine(Breathing.OpeningMessage("Breathing", "relax by walking your through breathing in and out slowly. \nClear your mind and focus on your breathing."));
-                    Thread.Sleep(8000);
-                    Console.Clear();
+                    Console.WriteLine();
                     Breathing.UserBreathingoutput();
                     Console.Clear();
                     animation.Spinner();
@@ -53,8 +52,7 @@ namespace Develop04
                     Console.Clear();
                     ReflectionActivity reflection = new ReflectionActivity("Activity", "Description", 0, "Response");
                     Console.WriteLine(reflection.OpeningMessage("Reflection", "reflect on times in your life when you have shown strength and resilience. \nThis will help you recognize the power you have and how you can use it in other aspects of your life."));
-                    Thread.Sleep(8000);
-                    Console.Clear();
+                    Console.WriteLine();
                     reflection.UserInput();
                     Console.Clear();
                     animation.Spinner();
@@ -62,14 +60,12 @@ namespace Develop04
             else if (Option == 3)
                 {
                     //Listing Activity
-                    Console.Clear();
-                    animation.Spinner();
-                    Console.WriteLine(" ");
-                    ListingActivity listingActivity = new ListingActivity("Activity", "Description", 0, "Response");
-                    Console.WriteLine(listingActivity.OpeningMessage("Listing", "reflect on times in your life when you have shown strength and resilience. \nThis will help you recognize the power you have and how you can use it in other aspects of your life.")); 
-                    Thread.Sleep(8000);
-                // we must call the user list using: UserListInput();
                 Console.Clear();
+                animation.Spinner();
+                Console.WriteLine(" ");
+                ListingActivity listingActivity = new ListingActivity("Activity", "Description", 0, "Response");
+                Console.WriteLine(listingActivity.OpeningMessage("Listing", "reflect on times in your life when you have shown strength and resilience. \nThis will help you recognize the power you have and how you can use it in other aspects of your life.")); 
+                Console.WriteLine();
                 listingActivity.UserListInput();
                 Console.Clear();
                 listingActivity.EndingMessage();

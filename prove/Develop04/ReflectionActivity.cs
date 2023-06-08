@@ -31,6 +31,7 @@ class ReflectionActivity : Activities
         public void UserInput()
         {
             int TimeChosen = GetDuration();
+            Console.Clear();
             string randomPrompt = GetRandPrompts();
             string randomReflectionQuestion = GetRandReflectQs();
             Console.WriteLine(randomPrompt);
