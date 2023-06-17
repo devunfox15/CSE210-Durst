@@ -44,5 +44,193 @@ namespace Develop04
             Console.Write("\b \b");
         }
     }
+    public void BreathingIn()
+        { // i need to connect the data from the user to this spinner
+            Console.Write("__");
+            Thread.Sleep(1000);
+            
+            Console.Write("_/\\");
+            Thread.Sleep(1000);
+            
+            Console.Write("__/VV\\");
+            Thread.Sleep(1000);
+            
+            Console.Write("__/\\_/\\");
+            Thread.Sleep(1000);
+            
+            Console.Write("__/VV\\___");
+            Thread.Sleep(1000);
+            
+        }
+    public void BreathingOut()
+    {
+            Console.Write("_/\\/\\/\\/");
+            Thread.Sleep(1000);
+            Console.Clear();
+            Console.Write("_/\\/\\/");
+            Thread.Sleep(1000);
+            Console.Clear();
+            Console.Write("_/\\/");
+            Thread.Sleep(1000);
+            Console.Clear();
+            Console.Write("_/\\");
+            Thread.Sleep(1000);
+            Console.Clear();
+            Console.Write("_/");
+            Thread.Sleep(1000);
+            Console.Clear();
+            Console.Write("_");
+            Thread.Sleep(1000);
     }
+    public void HourGlass()
+    {
+        Console.Clear();
+        Console.WriteLine("  _________");
+        Console.WriteLine("  \\-------/");
+        Console.WriteLine("   \\-----/");
+        Console.WriteLine("    \\---/");
+        Console.WriteLine("    /   \\");
+        Console.WriteLine("   /     \\");
+        Console.WriteLine("  /_______\\");
+        Thread.Sleep(750);
+        for(int i = 0; i < 4; i++)
+        {
+        Console.Clear();
+        Console.WriteLine("  _________");
+        Console.WriteLine("  \\-------/");
+        Console.WriteLine("   \\-----/");
+        Console.WriteLine("    \\---/");
+        Console.WriteLine("    / * \\");
+        Console.WriteLine("   /     \\");
+        Console.WriteLine("  /_______\\");
+
+        Thread.Sleep(750);
+        Console.Clear();
+        Console.WriteLine("  _________");
+        Console.WriteLine("  \\-------/");
+        Console.WriteLine("   \\-----/");
+        Console.WriteLine("    \\---/");
+        Console.WriteLine("    /   \\");
+        Console.WriteLine("   /  *  \\");
+        Console.WriteLine("  /_______\\");
+      
+        Thread.Sleep(750);
+        Console.Clear();
+        Console.WriteLine("  _________");
+        Console.WriteLine("  \\-------/");
+        Console.WriteLine("   \\-----/");
+        Console.WriteLine("    \\---/");
+        Console.WriteLine("    /   \\");
+        Console.WriteLine("   /     \\");
+        Console.WriteLine("  /___*___\\");
+        if (i == 3)
+        {
+            Console.WriteLine("20s left");
+            Thread.Sleep(250);
+        }
+        Thread.Sleep(750);
+    }
+    for(int i = 0; i < 4; i++)
+    {
+        Console.Clear();
+       Console.WriteLine("  _________");
+        Console.WriteLine("  \\       /");
+        Console.WriteLine("   \\-----/");
+        Console.WriteLine("    \\---/");
+        Console.WriteLine("    /   \\");
+        Console.WriteLine("   /     \\");
+        Console.WriteLine("  /-------\\");
+        Thread.Sleep(700);
+        Console.Clear();
+
+        Console.WriteLine("  _________");
+        Console.WriteLine("  \\       /");
+        Console.WriteLine("   \\-----/");
+        Console.WriteLine("    \\---/");
+        Console.WriteLine("    / * \\");
+        Console.WriteLine("   /     \\");
+        Console.WriteLine("  /-------\\");
+        Thread.Sleep(700);
+        Console.Clear();
+
+        Console.WriteLine("  _________");
+        Console.WriteLine("  \\       /");
+        Console.WriteLine("   \\-----/");
+        Console.WriteLine("    \\---/");
+        Console.WriteLine("    /   \\");
+        Console.WriteLine("   /  *  \\");
+        Console.WriteLine("  /-------\\");
+        Thread.Sleep(700);
+        Console.Clear();
+
+        Console.WriteLine("  _________");
+        Console.WriteLine("  \\       /");
+        Console.WriteLine("   \\-----/");
+        Console.WriteLine("    \\---/");
+        Console.WriteLine("    /   \\");
+        Console.WriteLine("   /     \\");
+        Console.WriteLine("  /---*---\\");
+        if (i == 3)
+        {
+            Console.WriteLine("10s left");
+            Thread.Sleep(250);
+        }
+        Thread.Sleep(700);
+        Console.Clear();
+    }
+     for(int i = 0; i < 3; i++)
+    {
+        Console.Clear();
+       Console.WriteLine("  _________");
+        Console.WriteLine("  \\       /");
+        Console.WriteLine("   \\     /");
+        Console.WriteLine("    \\---/");
+        Console.WriteLine("    /   \\");
+        Console.WriteLine("   /-----\\");
+        Console.WriteLine("  /-------\\");
+        Thread.Sleep(700);
+        Console.Clear();
+
+        Console.WriteLine("  _________");
+        Console.WriteLine("  \\       /");
+        Console.WriteLine("   \\     /");
+        Console.WriteLine("    \\---/");
+        Console.WriteLine("    / * \\");
+        Console.WriteLine("   /-----\\");
+        Console.WriteLine("  /-------\\");
+        Thread.Sleep(700);
+        Console.Clear();
+
+        Console.WriteLine("  _________");
+        Console.WriteLine("  \\       /");
+        Console.WriteLine("   \\     /");
+        Console.WriteLine("    \\---/");
+        Console.WriteLine("    /   \\");
+        Console.WriteLine("   /--*--\\");
+        Console.WriteLine("  /-------\\");
+      
+        Thread.Sleep(700);
+        Console.Clear();
+
+        Console.WriteLine("  _________");
+        Console.WriteLine("  \\       /");
+        Console.WriteLine("   \\     /");
+        Console.WriteLine("    \\---/");
+        Console.WriteLine("    /   \\");
+        Console.WriteLine("   /-----\\");
+        Console.WriteLine("  /---*---\\");
+        Thread.Sleep(700);
+        Console.Clear();
+
+       Console.WriteLine("  _________");
+        Console.WriteLine("  \\       /");
+        Console.WriteLine("   \\     /");
+        Console.WriteLine("    \\   /");
+        Console.WriteLine("    /---\\");
+        Console.WriteLine("   /-----\\");
+        Console.WriteLine("  /-------\\");
+
+    } 
+    }
+    }   
 }

@@ -13,6 +13,7 @@ class BreathingActivity : Activities
         public void BreathingInterval()
         {
             Console.Write("Breath in... ");
+            animation.BreathingIn();
             counterBreathIn();
             Console.WriteLine();
             Console.Write("Breath out... ");
@@ -25,6 +26,7 @@ class BreathingActivity : Activities
             Console.Clear();
             GetReady();
             Console.Clear();
+
             DateTime startTime = DateTime.Now;
             DateTime endTime = startTime.AddSeconds(TimeChosen);
             while (DateTime.Now < endTime)

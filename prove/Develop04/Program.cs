@@ -12,7 +12,8 @@ namespace Develop04
             Console.WriteLine("  1. Start breathing activity ");
             Console.WriteLine("  2. Start reflecting activity ");
             Console.WriteLine("  3. Start listing activity ");
-            Console.WriteLine("  4. Quit ");
+            Console.WriteLine("  4. Start timer activity ");
+            Console.WriteLine("  5. Quit ");
             }
             int UserInput()
             {
@@ -26,7 +27,7 @@ namespace Develop04
             Console.Clear();
             // Here is where I will call all of the classes
             Animations animation = new Animations();
-            while(Option != 4)
+            while(Option != 5)
             {
             if (Option == 1)
                 {
@@ -69,6 +70,25 @@ namespace Develop04
                 listingActivity.UserListInput();
                 Console.Clear();
                 listingActivity.EndingMessage();
+                animation.Spinner();
+                }
+                else if (Option == 4) 
+                {
+                Console.Clear();
+                animation.Spinner();
+                Console.WriteLine(" ");
+                Console.WriteLine("Welcome to the physical activity:");
+                Console.WriteLine("In this activity you can participate in an exercise while watch a timer counter for 30s.");
+                Thread.Sleep(5000);
+                Console.Clear();
+                Console.WriteLine("Ready??? Get comfortable! (you have 5 seconds till you begin)");
+                Thread.Sleep(5000);
+                Console.WriteLine("Begin your exercise!");
+                animation.HourGlass();
+                Console.Clear();
+                Console.WriteLine("Congrats on finish 30 seconds of your exercise. Hope to see you again soon!");
+                Thread.Sleep(3000);
+                Console.Clear();
                 animation.Spinner();
                 }
             else
