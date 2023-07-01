@@ -15,6 +15,7 @@ public class Entry
             //for creating an Entry object with the provided date, response, and prompt
         public Entry(string date, string response, string prompt)
             {
+                // the specific object
                 this.Date = date;
                 this.Prompt = prompt; // for the instance of the class. when someone creates an instance they go to this one
                 this.Response = response;

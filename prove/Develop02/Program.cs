@@ -31,6 +31,7 @@ namespace Develop02
                     Console.WriteLine(GetRandomPrompt());
                     string response = Console.ReadLine();
                     Entry entry1 = new Entry(DateTime.Now.ToString(), GetRandomPrompt(), response);
+                    // this has the current time of a created list, the string 
                     journal.AddEntry(entry1);
                 }
                 else if (input == "2")

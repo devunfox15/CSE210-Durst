@@ -1,0 +1,2 @@
+Checklist,jacked,to gain strength,10,100,9,10
+Simple,go to the store,buy stuff from the store before 12pm,5
