@@ -36,6 +36,7 @@ class Program
         return Option;
         }
         LoadUserScore();
+        LoadUserprizes();
         Console.WriteLine($"You have earned {UserPoints} points");
         Console.WriteLine($"You have earned {prizes} prizes");
         Console.WriteLine();
@@ -117,6 +118,7 @@ class Program
                 UserPoints -= 100;
                 prizes ++;
                 durstBuck++;
+                SaveUserprizes();
                 SaveUserScore();
                 Console.WriteLine();
                 Console.WriteLine("You got a virtual prize! yayyyyyy");
@@ -187,6 +189,18 @@ static void LoadUserScore()
         string score = File.ReadAllText("userscore.txt");
         UserPoints = int.Parse(score);
     }
+}
+static void LoadUserprizes()
+{
+    if (File.Exists("prizes.txt"))
+    {
+        string score = File.ReadAllText("prizes.txt");
+        prizes = int.Parse(score);
+    }
+}
+   static void SaveUserprizes()
+{
+    File.WriteAllText("prizes.txt", prizes.ToString());
 }
 }
 }
