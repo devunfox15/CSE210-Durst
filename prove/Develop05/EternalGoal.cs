@@ -31,12 +31,10 @@ public override bool TaskCompleation(int points)
     string userInput = Console.ReadLine();
     if (userInput == "y")
     {
-        Console.WriteLine($"( ) {_goalName} ({_goalDescription})");
         return true;
     }
     else
     {
-        Console.WriteLine($"( ) {_goalName} ({_goalDescription})");
         return false;
     }
 }

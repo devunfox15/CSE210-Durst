@@ -1,2 +1,4 @@
-Checklist,jacked,to gain strength,10,100,9,10
+Checklist,jacked,to gain strength,10,100,10,10
 Simple,go to the store,buy stuff from the store before 12pm,5
+Simple,get cash,to get money for a prize,101
+Simple,prize money fail,to fail bc points are low,30

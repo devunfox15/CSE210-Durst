@@ -66,8 +66,7 @@ class ChecklistGoal : Goal
             }
             
              // Update and store the userScore
-            Console.WriteLine($"(X) {_goalName} ({_goalDescription}) -- currently completed {_counter}/{_target}");
-             return true;
+            return true;
         }
         else if (userInput == "y")
         {
@@ -75,12 +74,10 @@ class ChecklistGoal : Goal
             {
                 return false;
             }
-            Console.WriteLine( $"( ) {_goalName} ({_goalDescription}) -- currently completed {_counter}/{_target}");
-            return true;
+             return true;
         }
         else
         {
-            Console.WriteLine($"( ) {_goalName} ({_goalDescription}) -- currently completed {_counter}/{_target}");
             return false;
         }
     }

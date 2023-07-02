@@ -60,7 +60,7 @@ public abstract class Goal
     public virtual string GetStringRepresentation()
     {
         System.Console.WriteLine("it broke here");
-        return($"{_goalName},{_goalDescription},{_totalPoints} ");
+        return("");
     }
 
     //------------------------------------------------------------------------------------------------

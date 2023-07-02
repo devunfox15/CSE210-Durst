@@ -37,7 +37,6 @@ public class SimpleGoal : Goal
             if (regulator < 1)
             {
             _compleation = true;
-            Console.WriteLine( $"(X) {_goalName} ({_goalDescription})");
             regulator++;
             return true;
             }

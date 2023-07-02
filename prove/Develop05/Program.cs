@@ -6,9 +6,11 @@ namespace Develop05
 {
 class Program
 {
+    static int UserPoints = 0;
+    static int prizes = 0;
+    static int durstBuck = 0;
     static void Main(string[] args)
     {
-        int UserPoints = 0;
         // declaring a list to store values
         List<Goal> GoalList = new List<Goal>();
         // declaring a new instance of simle goals to be able to display
@@ -23,7 +25,8 @@ class Program
             Console.WriteLine("  3. Save Goals");
             Console.WriteLine("  4. Load Goals");
             Console.WriteLine("  5. Record Event");
-            Console.WriteLine("  6. Quit");
+            Console.WriteLine("  6. Buy A prize");
+            Console.WriteLine("  7. Quit");
         }
         int UserInput()
         {
@@ -32,14 +35,16 @@ class Program
         int Option = int.Parse(Option1);
         return Option;
         }
-        
+        LoadUserScore();
+        Console.WriteLine($"You have earned {UserPoints} points");
+        Console.WriteLine($"You have earned {prizes} prizes");
         Console.WriteLine();
         Menu();
         int option = UserInput();
-        while (option != 6)
+        while (option != 7)
             {
             if (option == 1)
-                {        
+                {   
                     Console.WriteLine("The Types of goals are:");
                     Console.WriteLine("  1. Simple Goal");
                     Console.WriteLine("  2. Eternal Goal");
@@ -93,6 +98,7 @@ class Program
 
             else if (option == 3)
             {
+
                 loadGoal.SaveGoals(GoalList);
             }
             else if (option == 4)
@@ -101,9 +107,29 @@ class Program
             }
             else if (option == 5)
             {
+                Console.Clear();
                RecordEvent(GoalList);
             }
-                
+            else if (option == 6)
+            {
+                if (UserPoints >= 100)
+                {
+                UserPoints -= 100;
+                prizes ++;
+                durstBuck++;
+                Console.WriteLine();
+                Console.WriteLine("You got a virtual prize! yayyyyyy");
+                Console.WriteLine("________________________");
+                Console.WriteLine("|                      |");
+                Console.WriteLine($"| {durstBuck}   DURST BUCK   {durstBuck}   |");
+                Console.WriteLine("|                      |");
+                Console.WriteLine("````````````````````````");
+                }
+                else {
+                Console.WriteLine("sorry not enough points");           
+                }           
+            }
+        Console.WriteLine($"You have earned {UserPoints} points");
         Console.WriteLine();
         Menu();
         option = UserInput();
@@ -137,15 +163,29 @@ class Program
                     {
                         UserPoints += bonusPoints;
                     }
+                    SaveUserScore();
                 }
-            Console.WriteLine();
-            Console.WriteLine($"You have {UserPoints} points");
+            
         }
             else
             {
                 Console.WriteLine("Invalid goal number.");
             }
     }
+    
     }
+    static void SaveUserScore()
+{
+    File.WriteAllText("userscore.txt", UserPoints.ToString());
+}
+
+static void LoadUserScore()
+{
+    if (File.Exists("userscore.txt"))
+    {
+        string score = File.ReadAllText("userscore.txt");
+        UserPoints = int.Parse(score);
+    }
+}
 }
 }
