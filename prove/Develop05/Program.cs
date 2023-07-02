@@ -117,6 +117,7 @@ class Program
                 UserPoints -= 100;
                 prizes ++;
                 durstBuck++;
+                SaveUserScore();
                 Console.WriteLine();
                 Console.WriteLine("You got a virtual prize! yayyyyyy");
                 Console.WriteLine("________________________");
