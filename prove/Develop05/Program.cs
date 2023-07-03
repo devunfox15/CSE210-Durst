@@ -129,7 +129,7 @@ class Program
                 Console.WriteLine("````````````````````````");
                 }
                 else {
-                Console.WriteLine("sorry not enough points");           
+                Console.WriteLine("sorry not enough points you need 100!");           
                 }           
             }
         Console.WriteLine($"You have earned {UserPoints} points");
