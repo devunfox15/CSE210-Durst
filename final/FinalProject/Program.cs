@@ -6,17 +6,22 @@ namespace final
 {
     class Program
     {
+        // these static list can be acessed by all the programs
         static List<Member> Membership = new List<Member>();
         static List<ReservationManager> reservations = new List<ReservationManager>();
         static void Main(string[] args)
         {
+            // calls a new instance of library
             Library library = new Library();
+            // calls a new instance of files and share library to files
             Files fileHandler = new Files(library);
+            // loads the file for membership and library items
             fileHandler.LoadMembers(Membership);
             fileHandler.LoadLibraryItems();
+            //calls the library borrowing manager and returns 3 values to it 
             BorrowingManager borrowingManager = new BorrowingManager(library, fileHandler, Membership);
             string MemberResponse = " ";
-
+            // this displays the users account when they gain acesses
             void AccountDisplay(string person)
             {
                 Console.WriteLine($"Welcome to {person}'s Account:");
@@ -26,15 +31,16 @@ namespace final
                 Console.WriteLine("4. Status");
                 Console.WriteLine("x. Exit");
             }
-
+            // this is the general message added
             void OpeningModel()
             {
-                Console.WriteLine("Welcome to the library:");
-                Console.WriteLine("1. Create an Account");
-                Console.WriteLine("2. Log In with an account");
-                Console.WriteLine("3. Type 'q' to quit");
+                Console.WriteLine("Welcome to the library: ");
+                Console.WriteLine("('add') new item to library ");
+                Console.WriteLine("1. Create an Account ");
+                Console.WriteLine("2. Log In with an account ");
+                Console.WriteLine("3. Type 'q' to quit ");
             }
-
+            // this is a create your account  display
             void CreateAccount()
             {
                 Console.Clear();
@@ -42,7 +48,8 @@ namespace final
             }
 
             OpeningModel();
-            string choice = Console.ReadLine();
+            string choice = Console.ReadLine();// choice decides the user input
+//---------------------------------{ Whie loop for choice starts here }-------------------------------------------------------------------
             while (choice != "q")
             {
                 if (choice == "1")
@@ -59,40 +66,81 @@ namespace final
                     fileHandler.SaveMembers(Membership);
                     Console.WriteLine($"Your library card is: {libraryCard}");
                 }
-                else if (choice == "2")
+//----------------------------------------------------------------------------------------------------
+                else if (choice == "add")
                 {
                     Console.Clear();
-                    Console.WriteLine("What is your library card number?");
-                    int account = int.Parse(Console.ReadLine());
+                    Console.WriteLine("What item would you like to add to the library? (book/video) ");
+                    string itemType = Console.ReadLine();
 
-                    Member loggedInMember = Membership.Find(member => member.GetLibraryCardNumber() == account);
-
-                    if (loggedInMember != null)
+                    if (itemType == "book")
                     {
-                        Console.WriteLine("Logged in successfully!");
-                        Console.WriteLine($"Name: {loggedInMember.GetName()}");
-                        Console.WriteLine($"Address: {loggedInMember.GetAddress()}");
-                        Console.WriteLine($"Phone Number: {loggedInMember.GetPhoneNumber()}");
-                        Console.WriteLine("Did the member confirm any account info? (y/n)");
-                        string confirmation = Console.ReadLine();
-                        Console.Clear();
-                        if (confirmation == "y")
-                        {
-                            Console.Clear();
-                            while (MemberResponse != "x")
-                            {
-                                AccountDisplay(loggedInMember.GetName());
-                                Console.WriteLine("Which option would you like to do?");
-                                MemberResponse = Console.ReadLine();
+                        Console.WriteLine("What is the title of the book?");
+                        string bookTitle = Console.ReadLine();
+                        Console.WriteLine("What is the author's name?");
+                        string bookAuthor = Console.ReadLine();
 
+                        LibraryItem book = new Book(bookTitle, bookAuthor);
+                        library.AddItem(book);
+                        Console.WriteLine("Book added to the library.");
+                    }
+                    else if (itemType == "video")
+                    {
+                        Console.WriteLine("What is the title of the video?");
+                        string videoTitle = Console.ReadLine();
+                        Console.WriteLine("What is the director's name?");
+                        string videoDirector = Console.ReadLine();
+
+                        LibraryItem video = new Video(videoTitle, videoDirector);
+                        library.AddItem(video);
+                        Console.WriteLine("Video added to the library.");
+                    }
+                    else
+                    {
+                        Console.WriteLine("Invalid item type. Please try again.");
+                    }
+
+                    fileHandler.SaveLibraryItems(); // Save the updated library items to the file
+                }
+//-----------------------------------------------------------------------------------------------------------------------------------
+                else if (choice == "q")
+                {
+                Console.Clear();
+                Console.WriteLine("Program has been quit.");
+                }
+//---------------------------------------------------------------------------------------------------------------------------------
+        else if (choice == "2")
+        {
+            Console.Clear();
+            Console.WriteLine("What is your library card number?");
+            int account = int.Parse(Console.ReadLine());
+            //assigns a value to the loggedInMember variable using the Find method of the Membership list. 
+            Member loggedInMember = Membership.Find(member => member.GetLibraryCardNumber() == account);
+            if (loggedInMember != null)
+            {
+                Console.WriteLine("Logged in successfully!");
+                Console.WriteLine($"Name: {loggedInMember.GetName()}");
+                Console.WriteLine($"Address: {loggedInMember.GetAddress()}");
+                Console.WriteLine($"Phone Number: {loggedInMember.GetPhoneNumber()}");
+                Console.WriteLine("Did the member confirm any account info? (y/n)");
+                string confirmation = Console.ReadLine();
+                Console.Clear();
+                    if (confirmation == "y")
+                    {
+                        Console.Clear();
+//-----------------------------------{ This is the start of the member response while loop}-------------------------------------------------------
+                        while (MemberResponse != "x")
+                        {
+                            AccountDisplay(loggedInMember.GetName());
+                            Console.WriteLine("Which option would you like to do?");
+                            MemberResponse = Console.ReadLine();
                                 if (MemberResponse == "1")
                                 {
+                                    Console.Clear();
                                     Console.WriteLine("Enter the title of the item to check out:");
                                     string title = Console.ReadLine();
-
                                     string availabilityResult = borrowingManager.CheckAvailability(title);
                                     Console.WriteLine(availabilityResult.ToString());
-
                                     if (availabilityResult == "The item is available.")
                                     {
                                         Console.WriteLine("Enter your library card number:");
@@ -111,17 +159,14 @@ namespace final
                                 else if (MemberResponse == "2")
                                 {
                                     Console.Clear();
-                                   Console.WriteLine("Enter the title of the item to check in:");
+                                    Console.WriteLine("Enter the title of the item to check in:");
                                     string title = Console.ReadLine();
                                     FineCalculator fine = new FineCalculator();
                                     LibraryItem item = library.FindItem(title);
-
                                     if (item != null)
                                     {
                                         borrowingManager.LoadCheckedOutItems(); // Load checked-out items from the file
-
                                         bool success = borrowingManager.CheckInItem(item, fileHandler);
-
                                         if (success)
                                         {
                                             Console.WriteLine("Item checked in successfully.");
@@ -131,6 +176,7 @@ namespace final
                                             Console.WriteLine("Item is not checked out by the member.");
                                         }
                                     }
+
                                     else
                                     {
                                         Console.WriteLine("Item not found in the library.");
@@ -166,68 +212,40 @@ namespace final
                                 {
                                     Console.Clear();
                                     Console.WriteLine("Exiting...");
+                                    Thread.Sleep(3000);
+                                    Console.Clear();
+                                    
                                 }
                                 else
                                 {
-                                    Console.Clear();
-                                    Console.WriteLine("Invalid option. Please try again.");
+                                Console.WriteLine("Invalid option");
                                 }
 
-                                Console.WriteLine();
-                            }
                         }
-                    
-                    else
-                    {
+                        //-----------------------------------{ This is the start of the member response while loop}-------------------------------------------------------
+                        } // end if statement
+                    else{
                         Console.WriteLine("Invalid library card number.");
-                    }
-                }
-            
-                else if (choice == "add")
-                {
-                    Console.Clear();
-                    Console.WriteLine("What item would you like to add to the library? (book/video) ");
-                    string results = Console.ReadLine();
-                    if (results == "book")
-                    {
-                        Console.WriteLine("What is the title of the book?");
-                        string BookTitle = Console.ReadLine();
-                        Console.WriteLine("What is the authors name?");
-                        string bookAuthor = Console.ReadLine();
-
-                        LibraryItem item = new Book(BookTitle, bookAuthor);
-                        library.AddItem(item);
-                        fileHandler.SaveLibraryItems();
-                        Console.WriteLine("Book Item added to the library.");
-                    }
-                    else if (results == "video")
-                    {
-                        Console.WriteLine("What is the title of the movie?");
-                        string videoTitle = Console.ReadLine();
-                        Console.WriteLine("What is the directors name?");
-                        string videoDirector = Console.ReadLine();
-
-                        LibraryItem item = new Video(videoTitle, videoDirector);
-                        library.AddItem(item);
-                        fileHandler.SaveLibraryItems();
-                        Console.WriteLine("Video Item added to the library.");
-                    }
-                }
-                else if (choice == "q")
-                {
-                    Console.Clear();
-                    Console.WriteLine("Program has been quit.");
-                }
-
-                Console.WriteLine();
-                Console.WriteLine();
-                OpeningModel();
-                choice = Console.ReadLine();
-            }
+                        }
+            }// end of if logged in
+        }// end of else if
+//-----------------------------------------------------------------------------------------------------------------------------------
+        else
+        {
+        Console.Clear();
+        Console.WriteLine("Invalid option. Please try again.");
+        }
+//-----------------------------------------------------------------------------------------------------------------------------------
+      
+        Console.WriteLine();
+        OpeningModel();
+        MemberResponse = ""; // resets member reponse to do it again
+        choice = Console.ReadLine();
+        }
+        //---------------------------------{ Whie loop for choice ends here }-------------------------------------------------------------------    
 
             fileHandler.SaveMembers(Membership);
             fileHandler.SaveLibraryItems();
         }
     }
-}
 }

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 
 namespace final
 {
+    // did not have enough time to go all out with this however i made it funtion
     class ReservationManager
     {
         private string _bookTitle;

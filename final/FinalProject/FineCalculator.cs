@@ -14,10 +14,12 @@ namespace final
 
             if (lateReturn == "yes")
             {
+                Console.Clear();
                 ReceiveFine(title, fineAmount);
             }
             else
             {
+                Console.Clear();
                 Console.WriteLine("Not subject to a fine.");
             }
         }
