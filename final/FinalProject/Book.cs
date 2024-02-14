@@ -5,6 +5,7 @@ namespace final
         class Book : LibraryItem
     {
         private string _author;
+        private string _iSBN;
 
         public Book(string title, string author) : base(title)
         {
@@ -21,10 +22,17 @@ namespace final
         {
             return _author;
         }
+        public string GetISBN(){
+            return _iSBN;
+        }
+        public string SetISBN(string userISBN){
+            _iSBN = userISBN;
+            return _iSBN;
+        }
         public override string GetCheckout()
         {
             _checkOutDate = DateTime.Now.ToString("M/d/yyyy");
-            _dueDate = DateTime.Now.AddDays(14).ToString("M/d/yyyy");
+            _dueDate = DateTime.Now.AddDays(21).ToString("M/d/yyyy");
             return _checkOutDate;
         }
 

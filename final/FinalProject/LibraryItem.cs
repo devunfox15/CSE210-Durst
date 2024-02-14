@@ -13,6 +13,7 @@ abstract class LibraryItem
         protected string _checkOutDate;
         protected string _dueDate;
         protected int _fines;
+        protected int _daysLate;
 
         public LibraryItem()
         {
@@ -66,6 +67,10 @@ abstract class LibraryItem
         }
         public virtual int GetFine(){
             return _fines;
+        }
+        public virtual int GetDaysLate(){
+            _daysLate = (int)(DateTime.Now - DateTime.Parse(_dueDate)).TotalDays;
+            return _daysLate;
         }
         
     }

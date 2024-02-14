@@ -222,7 +222,7 @@ namespace final
                                 }
 
                         }
-                        //-----------------------------------{ This is the start of the member response while loop}-------------------------------------------------------
+//-----------------------------------{ This is the end of the member response while loop}-------------------------------------------------------
                         } // end if statement
                     else{
                         Console.WriteLine("Invalid library card number.");

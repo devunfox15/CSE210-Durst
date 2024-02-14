@@ -27,7 +27,7 @@ namespace final{
         public override string GetCheckout()
         {
             _checkOutDate = DateTime.Now.ToString("M/d/yyyy");
-            _dueDate = DateTime.Now.AddDays(7).ToString("M/d/yyyy");
+            _dueDate = DateTime.Now.AddDays(2).ToString("M/d/yyyy");
             return _checkOutDate;
         }
 
@@ -41,7 +41,24 @@ namespace final{
             return $"Your video is due on {_dueDate}.";
         }
          public override int GetFine(){
-            return 3;
+            // 5$ per day late
+            int lateDays = CalculateLateDays(); // Calculate the number of days the item is late
+            int fineAmount = 2 * lateDays; // Calculate the fine amount based on the number of late days
+            if (lateDays > 15){
+                fineAmount = 50;
+                return fineAmount;
+            }
+            else {
+                return fineAmount;
+            }
+         }
+        // reaoning for not being in the fine calculator is due to it being a video specific fine
+        private int CalculateLateDays(){
+        // Calculate the number of days the item is late
+            DateTime dueDate = DateTime.Parse(GetDueDate());
+            DateTime currentDate = DateTime.Now;
+            int lateDays = (int)(currentDate - dueDate).TotalDays;
+            return lateDays;
+            }
         }
     }
-}

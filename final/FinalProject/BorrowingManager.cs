@@ -93,7 +93,7 @@ namespace final
                 // Calculate fines using the FineCalculator
                 FineCalculator fineCalculator = new FineCalculator();
                 int fineAmount = item.GetFine();
-                fineCalculator.CalculateFine(item.GetTitle(), item.GetCheckout(), item.GetDueDate(), fineAmount);
+                fineCalculator.CalculateFine(item.GetTitle(), item.GetCheckout(), item.GetDueDate(), fineAmount, item.GetDaysLate());
 
                 return true;
             }

@@ -4,11 +4,12 @@ namespace final
 {
     class FineCalculator
     {
-        public void CalculateFine(string title, string checkoutDate, string dueDate, int fineAmount)
+        public void CalculateFine(string title, string checkoutDate, string dueDate, int fineAmount, int daysLate)
         {
             Console.WriteLine($"Did they check the {title} in late?('yes/no')");
             Console.WriteLine($"Check out date: {checkoutDate}");
             Console.WriteLine($"Due date: {dueDate}");
+            Console.WriteLine($"Number of days late: {daysLate}");
             Console.WriteLine($"Today is the: {DateTime.Now}");
             string lateReturn = Console.ReadLine();
 
